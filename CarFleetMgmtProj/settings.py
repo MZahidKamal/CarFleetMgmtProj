@@ -73,11 +73,25 @@ WSGI_APPLICATION = 'CarFleetMgmtProj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Default sqlite database configuration came with the Django project.
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+"""
+# PostgreSQL database installed in a AWS EC2 instance, and then created this configuration, and now connected with this Django project.
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'PASSWORD': '12345',
+       'HOST': '3.67.194.90',
+       'PORT': '5432',
+   }
 }
 
 
