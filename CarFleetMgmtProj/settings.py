@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'CarFleetMgmtProj.wsgi.application'
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-"""
+
 # Default sqlite database configuration came with the Django project.
 DATABASES = {
     'default': {
@@ -106,7 +106,7 @@ DATABASES = {
        'PORT': env('DB_PORT'),
    }
 }
-
+"""
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Password validation
