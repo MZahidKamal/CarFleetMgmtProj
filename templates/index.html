@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}Car Fleet Management{% endblock %}
+
+
+{% block page_independent_content %}
+
+    <div class="container">
+        <div class="role-selection row">
+            <div class="col-md-6">
+                <img src="{% static 'images/select-role.png' %}" class="img-fluid" style="width: auto; height: 400px" alt="select_role">
+            </div>
+            <div class="role-selection col-md-6 d-flex flex-column justify-content fs-1">
+                <p>Select your role to login</p>
+                <button class="btn btn-light btn-block mb-2">Manufacturer</button>
+                <button class="btn btn-light btn-block mb-2">Car Dealer</button>
+                <button class="btn btn-light btn-block mb-2">Delivery Agent</button>
+                <button class="btn btn-light btn-block mb-2">Customer</button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
