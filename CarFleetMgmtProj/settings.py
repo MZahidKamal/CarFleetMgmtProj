@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'CarFleetMgmtProj.wsgi.application'
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+"""
 # Default sqlite database configuration came with the Django project.
 DATABASES = {
     'default': {
@@ -106,7 +106,7 @@ DATABASES = {
        'PORT': env('DB_PORT'),
    }
 }
-"""
+
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Password validation
