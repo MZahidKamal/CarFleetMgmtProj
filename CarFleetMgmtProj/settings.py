@@ -95,6 +95,7 @@ DATABASES = {
 }
 
 """
+
 # PostgreSQL database installed in a AWS EC2 instance, and then created this configuration, and now connected with this Django project.
 DATABASES = {
    'default': {
