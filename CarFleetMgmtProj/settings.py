@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_admin_generator',
     'crispy_forms',
     'crispy_bootstrap5',
     'storages',
 
     'manufacturer',
+    'stationery',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'CarFleetMgmtProj.wsgi.application'
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-"""
+
 # Default sqlite database configuration came with the Django project.
 DATABASES = {
     'default': {
@@ -107,7 +109,7 @@ DATABASES = {
        'PORT': '5432',
    }
 }
-
+"""
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Password validation
