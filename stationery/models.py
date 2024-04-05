@@ -33,6 +33,8 @@ class PersonModel(models.Model):
             return (date.today() - self.date_of_birth).days // 365
         else:
             return None
+    # The @property decorator in a Django model allows you to create a read-only attribute that behaves like a regular
+    # property but is calculated dynamically based on other attributes or methods in the model.
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -47,6 +49,8 @@ class EmployeeModel(models.Model):
     @property
     def full_name(self):
         return f"{self.person.first_name} {self.person.last_name}"
+    # The @property decorator in a Django model allows you to create a read-only attribute that behaves like a regular
+    # property but is calculated dynamically based on other attributes or methods in the model.
 
     def __str__(self):
         return f"{self.person.first_name} {self.person.last_name}"
