@@ -1,7 +1,7 @@
 # All necessary imports for admin registration.
 from django.contrib import admin
 
-# All database model imports from this app.
+# Importing all database models from this app.
 from .models import AddressModel, PersonModel, EmployeeModel, CompanyModel
 
 #-----------------------------------------------------------------------------------------------------------------------

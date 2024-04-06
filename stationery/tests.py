@@ -1,8 +1,8 @@
-# All necessary imports for tests.
+# All necessary imports for creating test cases.
 from django.test import TestCase
 from datetime import date
 
-# All database model imports from this app.
+# Importing all database models from this app.
 from .models import AddressModel, PersonModel, EmployeeModel, CompanyModel
 
 #-----------------------------------------------------------------------------------------------------------------------

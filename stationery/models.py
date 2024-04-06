@@ -1,4 +1,4 @@
-# All necessary imports for models.
+# All necessary imports for creating models.
 from django.db import models
 from datetime import date
 
@@ -15,6 +15,8 @@ class AddressModel(models.Model):
 
     def __str__(self):
         return f"{self.street} {self.house}, {self.zip_code} {self.city}, {self.state}, {self.country}"
+    # The __str__() method in a Django model is used to define the representation of the object information in the admin
+    # interfaces or elsewhere in the application.
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -49,8 +51,6 @@ class EmployeeModel(models.Model):
     @property
     def full_name(self):
         return f"{self.person.first_name} {self.person.last_name}"
-    # The @property decorator in a Django model allows you to create a read-only attribute that behaves like a regular
-    # property but is calculated dynamically based on other attributes or methods in the model.
 
     def __str__(self):
         return f"{self.person.first_name} {self.person.last_name}"
