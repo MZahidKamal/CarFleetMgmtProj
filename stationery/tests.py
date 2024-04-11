@@ -23,7 +23,7 @@ class AddressModelTestCase(TestCase):
 
     # Testing each property of the AddressModel.
     def test_address_creation(self):
-        """Test the creation of AddressModel objects"""
+        # Test the creation of AddressModel objects
         self.assertEqual(self.address.street, 'Kaiserstraße')
         self.assertEqual(self.address.house, '75')
         self.assertEqual(self.address.zip_code, '60329')
@@ -33,7 +33,7 @@ class AddressModelTestCase(TestCase):
 
     # Testing the method of the AddressModel.
     def test_address_str_method(self):
-        """Test the __str__ method of AddressModel"""
+        # Test the __str__ method of AddressModel
         expected_str = 'Kaiserstraße 75, 60329 Frankfurt am Main, Hessen, Germany'
         self.assertEqual(str(self.address), expected_str)
 

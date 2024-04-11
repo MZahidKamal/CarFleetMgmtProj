@@ -26,6 +26,12 @@ urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('', include('stationery.urls')),
     path('', include('manufacturer.urls')),
+    path('', include('cardealer.urls')),
+    path('', include('deliveryagent.urls')),
+    path('', include('customer.urls')),
+    path('', include('car.urls')),
+    path('', include('vehiclecondition.urls')),
+    path('', include('workorder.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

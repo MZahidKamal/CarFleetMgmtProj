@@ -6,7 +6,7 @@ from .models import AddressModel, PersonModel, EmployeeModel, CompanyModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-# Creating a serializer for the address model, so that it can translate the python address object into a JSON format.
+# Creating a serializer so that it can translate the python object into a JSON format.
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = AddressModel

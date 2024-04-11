@@ -48,8 +48,14 @@ INSTALLED_APPS = [
     'storages',
     'rest_framework',
 
-    'manufacturer',
     'stationery',
+    'manufacturer',
+    'cardealer',
+    'deliveryagent',
+    'customer',
+    'car',
+    'vehiclecondition',
+    'workorder',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

@@ -25,8 +25,8 @@ class PersonModel(models.Model):
     first_name = models.CharField(max_length=50, verbose_name="First Name")
     last_name = models.CharField(max_length=50, verbose_name="Last Name")
     date_of_birth = models.DateField(verbose_name="Date of Birth", null=True, blank=True)
-    email_address = models.EmailField(max_length=100, verbose_name="Email Address")
-    phone_number = models.CharField(max_length=50, verbose_name="Phone Number")
+    email_address = models.EmailField(max_length=100, unique=True, verbose_name="Email Address")
+    phone_number = models.CharField(max_length=50, unique=True, verbose_name="Phone Number")
     address = models.ForeignKey(AddressModel, on_delete=models.CASCADE, null=True, blank=True)
 
     @property
@@ -59,10 +59,10 @@ class EmployeeModel(models.Model):
 
 # Creating a company model, so that it can be inherited from anywhere of this project.
 class CompanyModel(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Company Name")
+    name = models.CharField(max_length=100, unique=True, verbose_name="Company Name")
     address = models.ForeignKey(AddressModel, on_delete=models.CASCADE, null=True, blank=True)
     registered_on = models.DateField(verbose_name="Registration Date")
-    registration_number = models.CharField(max_length=100, verbose_name="Registration Number")
+    registration_number = models.CharField(max_length=100, unique=True, verbose_name="Registration Number")
     employees = models.ManyToManyField(EmployeeModel, verbose_name="Employees", blank=True)
 
     def __str__(self):
