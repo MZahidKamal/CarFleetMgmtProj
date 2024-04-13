@@ -31,7 +31,7 @@ class ProofImagesModel(models.Model):
 # Creating a vehicle condition model, so that it can be inherited from the car receiving/delivering VC models.
 class VehicleConditionModel(models.Model):
     vin_number = models.CharField(max_length=25, verbose_name='VIN')
-    registration_number = models.CharField(max_length=25, verbose_name='Registration Number')
+    registration_number = models.CharField(max_length=10, verbose_name='Registration Number')
     mileage = models.IntegerField(verbose_name='Mileage')
     fuel_level = models.CharField(max_length=5, choices=CHOICES_FL, default='0/10', verbose_name='Fuel Level')
     main_keys = models.CharField(max_length=1, choices=CHOICES_MK, default='0', verbose_name='Main Keys')

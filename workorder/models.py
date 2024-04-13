@@ -35,7 +35,7 @@ class OverheadExpensesModel(models.Model):
 class WorkOrdersModel(models.Model):
     wo_number = models.CharField(max_length=25, unique=True, editable=False, verbose_name="Work Order Number")
     type = models.CharField(max_length=12, choices=CHOICES_WOT, default='CAR DELIVERY', verbose_name="Work Order Type")
-    car = models.CharField(max_length=50, verbose_name="Car")
+    car_vin = models.CharField(max_length=50, null=True, blank=True, verbose_name="Car VIN")
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Created On")
 
     status = models.CharField(max_length=21, choices=CHOICES_ST, default='PENDING', verbose_name="Work Order Status")
@@ -57,6 +57,6 @@ class WorkOrdersModel(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.wo_number} - {self.type} - {self.car} - {self.created_on}"
+        return f"{self.wo_number} - {self.type} - {self.car_vin} - {self.created_on}"
 
 #-----------------------------------------------------------------------------------------------------------------------

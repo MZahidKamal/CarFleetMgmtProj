@@ -69,7 +69,7 @@ class WorkOrdersModelTestCases(TestCase):
         self.work_order = WorkOrdersModel.objects.create(
             # wo_number='WO195673',
             type='CAR RETURN',
-            car='L6TCX2E78NE034774',
+            car_vin='L6TCX2E78NE034774',
             created_on=datetime.now(),
             status='IN PROCESS',
             delivery_date=date(2016, 10, 11),
@@ -91,7 +91,7 @@ class WorkOrdersModelTestCases(TestCase):
         self.assertTrue(self.work_order.id)
         self.assertTrue(self.work_order.wo_number)
         self.assertEqual(self.work_order.type, 'CAR RETURN')
-        self.assertEqual(self.work_order.car, 'L6TCX2E78NE034774')
+        self.assertEqual(self.work_order.car_vin, 'L6TCX2E78NE034774')
         self.assertTrue(self.work_order.created_on)
         self.assertEqual(self.work_order.status, 'IN PROCESS')
         self.assertEqual(self.work_order.delivery_date, date(2016, 10, 11))
