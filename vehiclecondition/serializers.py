@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # Importing all database models from this app.
-from .models import ProofImagesModel, VehicleConditionModel, CarReceivingVCModel, CarDeliveringVCModel
+from .models import ProofImagesModel, VehicleConditionModel, CarReceivingVCModel, CarGivingVCModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -31,9 +31,9 @@ class CarReceivingVCModelSerializer(serializers.ModelSerializer):
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating a serializer so that it can translate the python object into a JSON format.
-class CarDeliveringVCModelSerializer(serializers.ModelSerializer):
+class CarGivingVCModelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CarDeliveringVCModel
+        model = CarGivingVCModel
         fields = '__all__'
 
 #-----------------------------------------------------------------------------------------------------------------------

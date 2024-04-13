@@ -7,13 +7,13 @@ from rest_framework import status
 # Importing all database models from this app.
 from .models import (VehicleConditionModel,
                      CarReceivingVCModel,
-                     CarDeliveringVCModel)
+                     CarGivingVCModel)
 
 # Importing all serializers from this app.
 from .serializers import (ProofImagesModelSerializer,
                           VehicleConditionModelSerializer,
                           CarReceivingVCModelSerializer,
-                          CarDeliveringVCModelSerializer)
+                          CarGivingVCModelSerializer)
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ def vehicle_condition_list(request, format=None):
     if request.method == 'GET':
         vc_reports = VehicleConditionModel.objects.all()
         serializer = VehicleConditionModelSerializer(vc_reports, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
         serializer = VehicleConditionModelSerializer(data=request.data)
@@ -45,7 +45,7 @@ def vehicle_condition_detail(request, pk, format=None):
 
     if request.method == 'GET':
         serializer = VehicleConditionModelSerializer(vc_report)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'PUT':
         serializer = VehicleConditionModelSerializer(vc_report, data=request.data)
@@ -67,7 +67,7 @@ def car_receiving_vc_list(request, format=None):
     if request.method == 'GET':
         car_receiving_vc_reports = CarReceivingVCModel.objects.all()
         serializer = CarReceivingVCModelSerializer(car_receiving_vc_reports, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
         serializer = CarReceivingVCModelSerializer(data=request.data)
@@ -88,7 +88,7 @@ def car_receiving_vc_detail(request, pk, format=None):
 
     if request.method == 'GET':
         serializer = CarReceivingVCModelSerializer(car_receiving_vc_report)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'PUT':
         serializer = CarReceivingVCModelSerializer(car_receiving_vc_report, data=request.data)
@@ -105,15 +105,15 @@ def car_receiving_vc_detail(request, pk, format=None):
 #-----------------------------------------------------------------------------------------------------------------------
 
 @api_view(['GET', 'POST'])
-def car_delivering_vc_list(request, format=None):
+def car_giving_vc_list(request, format=None):
 
     if request.method == 'GET':
-        car_delivering_vc_reports = CarDeliveringVCModel.objects.all()
-        serializer = CarDeliveringVCModelSerializer(car_delivering_vc_reports, many=True)
-        return Response(serializer.data)
+        car_giving_vc_reports = CarGivingVCModel.objects.all()
+        serializer = CarGivingVCModelSerializer(car_giving_vc_reports, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
-        serializer = CarDeliveringVCModelSerializer(data=request.data)
+        serializer = CarGivingVCModelSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -123,18 +123,18 @@ def car_delivering_vc_list(request, format=None):
 #-----------------------------------------------------------------------------------------------------------------------
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def car_delivering_vc_detail(request, pk, format=None):
+def car_giving_vc_detail(request, pk, format=None):
     try:
-        car_delivering_vc_report = CarDeliveringVCModel.objects.get(id=pk)
-    except CarDeliveringVCModel.DoesNotExist:
+        car_giving_vc_report = CarGivingVCModel.objects.get(id=pk)
+    except CarGivingVCModel.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = CarDeliveringVCModelSerializer(car_delivering_vc_report)
-        return Response(serializer.data)
+        serializer = CarGivingVCModelSerializer(car_giving_vc_report)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'PUT':
-        serializer = CarDeliveringVCModelSerializer(car_delivering_vc_report, data=request.data)
+        serializer = CarGivingVCModelSerializer(car_giving_vc_report, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -142,7 +142,7 @@ def car_delivering_vc_detail(request, pk, format=None):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        car_delivering_vc_report.delete()
+        car_giving_vc_report.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 #-----------------------------------------------------------------------------------------------------------------------

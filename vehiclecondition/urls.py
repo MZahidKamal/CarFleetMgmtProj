@@ -7,8 +7,8 @@ from .views import (vehicle_condition_list,
                     vehicle_condition_detail,
                     car_receiving_vc_list,
                     car_receiving_vc_detail,
-                    car_delivering_vc_list,
-                    car_delivering_vc_detail)
+                    car_giving_vc_list,
+                    car_giving_vc_detail)
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -20,8 +20,8 @@ urlpatterns = [
     path('vc-list-cr', car_receiving_vc_list, name='cr-vc-list'),
     path('vc-list-cr/<int:pk>', car_receiving_vc_detail, name='cr-vc-details'),
 
-    path('vc-list-cd', car_delivering_vc_list, name='cd-vc-list'),
-    path('vc-list-cd/<int:pk>', car_delivering_vc_detail, name='cd-vc-details'),
+    path('vc-list-cd', car_giving_vc_list, name='cd-vc-list'),
+    path('vc-list-cd/<int:pk>', car_giving_vc_detail, name='cd-vc-details'),
 ]
 
 #-----------------------------------------------------------------------------------------------------------------------

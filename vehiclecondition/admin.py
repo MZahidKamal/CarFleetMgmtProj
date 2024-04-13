@@ -2,7 +2,7 @@
 from django.contrib import admin
 
 # Importing all database models from this app.
-from .models import ProofImagesModel, VehicleConditionModel, CarReceivingVCModel, CarDeliveringVCModel
+from .models import ProofImagesModel, VehicleConditionModel, CarReceivingVCModel, CarGivingVCModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -28,17 +28,17 @@ admin.site.register(VehicleConditionModel, VehicleConditionModelAdmin)
 #-----------------------------------------------------------------------------------------------------------------------
 
 class CarReceivingVCModelAdmin(admin.ModelAdmin):
-    list_display = ('wo_number', 'receiving_from', 'created_on')
-    list_filter = ('wo_number', 'created_on')
+    list_display = ('receiving_from', 'created_on')
+    list_filter = ('created_on',)
 
 admin.site.register(CarReceivingVCModel, CarReceivingVCModelAdmin)
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-class CarDeliveringVCModelAdmin(admin.ModelAdmin):
-    list_display = ('wo_number', 'delivering_to', 'created_on')
-    list_filter = ('wo_number', 'created_on')
+class CarGivingVCModelAdmin(admin.ModelAdmin):
+    list_display = ('giving_to', 'created_on')
+    list_filter = ('created_on',)
 
-admin.site.register(CarDeliveringVCModel, CarDeliveringVCModelAdmin)
+admin.site.register(CarGivingVCModel, CarGivingVCModelAdmin)
 
 #-----------------------------------------------------------------------------------------------------------------------

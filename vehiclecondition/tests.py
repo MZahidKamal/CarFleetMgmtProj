@@ -3,7 +3,7 @@ from django.test import TestCase
 from datetime import date, datetime
 
 # Importing all database models from this app.
-from .models import ProofImagesModel, VehicleConditionModel, CarReceivingVCModel, CarDeliveringVCModel
+from .models import ProofImagesModel, VehicleConditionModel, CarReceivingVCModel, CarGivingVCModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -73,7 +73,6 @@ class VehicleConditionModelTestCases(TestCase):
             tyre_set='WINTER',
             tow_bar='YES',
             # ProofImages has already been tested previously. So we are not creating it again and testing again.
-            # created_on=datetime.now(),
         )
 
     def test_vehicle_condition_creation(self):
@@ -110,7 +109,6 @@ class CarReceivingVCModelTestCases(TestCase):
     # Creating an object of CarReceivingVCModel.
     def setUp(self):
         self.car_receiving_vc = CarReceivingVCModel.objects.create(
-            wo_number='WO116575',
             # VehicleCondition has already been tested previously. So we are not creating it again and testing again.
             receiving_from='Autohaus Hedtke GmbH',
             created_on=datetime.now(),
@@ -121,7 +119,6 @@ class CarReceivingVCModelTestCases(TestCase):
     def test_car_receiving_vc_creation(self):
         self.assertIsInstance(self.car_receiving_vc, CarReceivingVCModel)
         self.assertTrue(self.car_receiving_vc.id)
-        self.assertTrue(self.car_receiving_vc.wo_number)
         # VehicleCondition has already been tested previously. So we are not creating it again and testing again.
         self.assertTrue(self.car_receiving_vc.receiving_from)
         self.assertTrue(self.car_receiving_vc.created_on)
@@ -129,36 +126,34 @@ class CarReceivingVCModelTestCases(TestCase):
         self.assertTrue(self.car_receiving_vc.e_signature)
 
     def test_car_receiving_vc_model_str_method(self):
-        expected_str = f'WO116575, Autohaus Hedtke GmbH, {self.car_receiving_vc.created_on}'
+        expected_str = f'Autohaus Hedtke GmbH, {self.car_receiving_vc.created_on}'
         self.assertEqual(str(self.car_receiving_vc), expected_str)
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-class CarDeliveringVCModelTestCases(TestCase):
+class CarGivingVCModelTestCases(TestCase):
 
-    # Creating an object of CarDeliveringVCModel.
+    # Creating an object of CarGivingVCModel.
     def setUp(self):
-        self.car_delivering_vc = CarDeliveringVCModel.objects.create(
-            wo_number='WO116575',
+        self.car_giving_vc = CarGivingVCModel.objects.create(
             # VehicleCondition has already been tested previously. So we are not creating it again and testing again.
-            delivering_to='Autohaus Hedtke GmbH',
+            giving_to='Autohaus Hedtke GmbH',
             created_on=datetime.now(),
             location='Rudolf-Diesel-Straße 42, 64331 Weiterstadt',
             e_signature='workorder/test_images/14. e_signature',
         )
 
-    def test_car_receiving_vc_creation(self):
-        self.assertIsInstance(self.car_delivering_vc, CarDeliveringVCModel)
-        self.assertTrue(self.car_delivering_vc.id)
-        self.assertTrue(self.car_delivering_vc.wo_number)
+    def test_car_giving_vc_creation(self):
+        self.assertIsInstance(self.car_giving_vc, CarGivingVCModel)
+        self.assertTrue(self.car_giving_vc.id)
         # VehicleCondition has already been tested previously. So we are not creating it again and testing again.
-        self.assertTrue(self.car_delivering_vc.delivering_to)
-        self.assertTrue(self.car_delivering_vc.created_on)
-        self.assertTrue(self.car_delivering_vc.location)
-        self.assertTrue(self.car_delivering_vc.e_signature)
+        self.assertTrue(self.car_giving_vc.giving_to)
+        self.assertTrue(self.car_giving_vc.created_on)
+        self.assertTrue(self.car_giving_vc.location)
+        self.assertTrue(self.car_giving_vc.e_signature)
 
     def test_car_receiving_vc_model_str_method(self):
-        expected_str = f'WO116575, Autohaus Hedtke GmbH, {self.car_delivering_vc.created_on}'
-        self.assertEqual(str(self.car_delivering_vc), expected_str)
+        expected_str = f'Autohaus Hedtke GmbH, {self.car_giving_vc.created_on}'
+        self.assertEqual(str(self.car_giving_vc), expected_str)
 
 #-----------------------------------------------------------------------------------------------------------------------
