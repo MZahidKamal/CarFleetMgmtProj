@@ -11,7 +11,6 @@ from .views import (car_expenses_list,
                     work_order_details,
                     )
 
-
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating al necessary url pattern, so that we can access them from internet. .
