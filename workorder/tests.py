@@ -75,7 +75,8 @@ class WorkOrdersModelTestCases(TestCase):
             delivery_date=date(2016, 10, 11),
             car_dealer='Haas GmbH',
             customer='Paul Lauterbach',
-            delivery_agent='Juan Manuel',
+            # delivery_agent='',
+            # PersonModel has already been tested previously. So we are not creating it again and testing again.
             # car_receiving_vc='',
             # CarReceivingVCModel has already been tested previously. So we are not creating it again and testing again.
             # car_giving_vc='',
@@ -97,7 +98,6 @@ class WorkOrdersModelTestCases(TestCase):
         self.assertEqual(self.work_order.delivery_date, date(2016, 10, 11))
         self.assertEqual(self.work_order.car_dealer, 'Haas GmbH')
         self.assertEqual(self.work_order.customer, 'Paul Lauterbach')
-        self.assertEqual(self.work_order.delivery_agent, 'Juan Manuel')
 
     def test_work_order_model_str_method(self):
         expected_str = f'{self.work_order.wo_number} - CAR RETURN - L6TCX2E78NE034774 - {self.work_order.created_on}'

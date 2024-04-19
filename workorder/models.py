@@ -5,6 +5,7 @@ import random
 # Importing all necessary components from this app.
 from .constants import *
 from vehiclecondition.models import CarReceivingVCModel, CarGivingVCModel
+from stationery.models import PersonModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ class WorkOrdersModel(models.Model):
 
     car_dealer = models.CharField(max_length=50, verbose_name="Car Dealer")
     customer = models.CharField(max_length=100, verbose_name="Customer")
-    delivery_agent = models.CharField(max_length=50, verbose_name="Delivery Agent")
+    delivery_agent = models.ForeignKey(PersonModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Delivery Agent")
 
     car_receiving_vc = models.ForeignKey(CarReceivingVCModel, on_delete=models.CASCADE, verbose_name="Car Receiving VC", null=True, blank=True)
     car_giving_vc = models.ForeignKey(CarGivingVCModel, on_delete=models.CASCADE, verbose_name="Car Giving VC", null=True, blank=True)
@@ -55,6 +56,7 @@ class WorkOrdersModel(models.Model):
         if not self.wo_number:
             self.wo_number = f"WO{random.randint(100000, 999999)}"
         super().save(*args, **kwargs)
+    # Dynamically creating a WO number and saving it in this model's instance.
 
     def __str__(self):
         return f"{self.wo_number} - {self.type} - {self.car_vin} - {self.created_on}"

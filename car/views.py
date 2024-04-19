@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 # All necessary imports for creating views.
 from django.shortcuts import render
 from rest_framework.response import Response

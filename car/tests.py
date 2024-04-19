@@ -7,10 +7,10 @@ from .models import CarModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-# Creating a class to test everything related to CarExpensesModel.
+# Creating a class to test everything related to CarModel.
 class CarModelTestCases(TestCase):
 
-    # Creating an object of CarExpensesModel.
+    # Creating an object of CarModel.
     def setUp(self):
         self.car = CarModel.objects.create(
             brand='Lynk & Co',
