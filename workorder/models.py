@@ -5,7 +5,11 @@ import random
 # Importing all necessary components from this app.
 from .constants import *
 from vehiclecondition.models import CarReceivingVCModel, CarGivingVCModel
-from stationery.models import PersonModel
+from manufacturer.models import ManufacturerModel
+from car.models import CarModel
+from cardealer.models import CarDealerModel
+from customer.models import CustomerModel
+from deliveryagent.models import DeliveryAgentModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -36,15 +40,16 @@ class OverheadExpensesModel(models.Model):
 class WorkOrdersModel(models.Model):
     wo_number = models.CharField(max_length=25, unique=True, editable=False, verbose_name="Work Order Number")
     type = models.CharField(max_length=12, choices=CHOICES_WOT, default='CAR DELIVERY', verbose_name="Work Order Type")
-    car_vin = models.CharField(max_length=50, null=True, blank=True, verbose_name="Car VIN")
+    manufacturer = models.ForeignKey(ManufacturerModel, on_delete=models.CASCADE, verbose_name="Manufacturer", null=True, blank=True,)
+    car = models.ForeignKey(CarModel, on_delete=models.CASCADE, verbose_name="Car", null=True, blank=True,)
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Created On")
 
     status = models.CharField(max_length=21, choices=CHOICES_ST, default='PENDING', verbose_name="Work Order Status")
     delivery_date = models.DateField(verbose_name="Delivery Date", null=True, blank=True)
 
-    car_dealer = models.CharField(max_length=50, verbose_name="Car Dealer")
-    customer = models.CharField(max_length=100, verbose_name="Customer")
-    delivery_agent = models.ForeignKey(PersonModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Delivery Agent")
+    car_dealer = models.ForeignKey(CarDealerModel, on_delete=models.CASCADE, verbose_name="Car Dealer", null=True, blank=True,)
+    customer = models.ForeignKey(CustomerModel, on_delete=models.CASCADE, verbose_name="Customer", null=True, blank=True,)
+    delivery_agent = models.ForeignKey(DeliveryAgentModel, on_delete=models.CASCADE, verbose_name="Delivery Agent", null=True, blank=True,)
 
     car_receiving_vc = models.ForeignKey(CarReceivingVCModel, on_delete=models.CASCADE, verbose_name="Car Receiving VC", null=True, blank=True)
     car_giving_vc = models.ForeignKey(CarGivingVCModel, on_delete=models.CASCADE, verbose_name="Car Giving VC", null=True, blank=True)
@@ -59,6 +64,6 @@ class WorkOrdersModel(models.Model):
     # Dynamically creating a WO number and saving it in this model's instance.
 
     def __str__(self):
-        return f"{self.wo_number} - {self.type} - {self.car_vin} - {self.created_on}"
+        return f"{self.wo_number} - {self.type} - {self.created_on}"
 
 #-----------------------------------------------------------------------------------------------------------------------

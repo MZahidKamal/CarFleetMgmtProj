@@ -69,14 +69,17 @@ class WorkOrdersModelTestCases(TestCase):
         self.work_order = WorkOrdersModel.objects.create(
             # wo_number='WO195673',
             type='CAR RETURN',
-            car_vin='L6TCX2E78NE034774',
+            # car='',
+            # CarModel has already been tested previously. So we are not creating it again and testing again.
             created_on=datetime.now(),
             status='IN PROCESS',
             delivery_date=date(2016, 10, 11),
-            car_dealer='Haas GmbH',
-            customer='Paul Lauterbach',
+            # car_dealer='',
+            # CarDealerModel>CompanyModel has already been tested previously. So we are not creating it again and testing again.
+            # customer='',
+            # CustomerModel>PersonModel has already been tested previously. So we are not creating it again and testing again.
             # delivery_agent='',
-            # PersonModel has already been tested previously. So we are not creating it again and testing again.
+            # DeliveryAgentModel>PersonModel has already been tested previously. So we are not creating it again and testing again.
             # car_receiving_vc='',
             # CarReceivingVCModel has already been tested previously. So we are not creating it again and testing again.
             # car_giving_vc='',
@@ -92,15 +95,12 @@ class WorkOrdersModelTestCases(TestCase):
         self.assertTrue(self.work_order.id)
         self.assertTrue(self.work_order.wo_number)
         self.assertEqual(self.work_order.type, 'CAR RETURN')
-        self.assertEqual(self.work_order.car_vin, 'L6TCX2E78NE034774')
         self.assertTrue(self.work_order.created_on)
         self.assertEqual(self.work_order.status, 'IN PROCESS')
         self.assertEqual(self.work_order.delivery_date, date(2016, 10, 11))
-        self.assertEqual(self.work_order.car_dealer, 'Haas GmbH')
-        self.assertEqual(self.work_order.customer, 'Paul Lauterbach')
 
     def test_work_order_model_str_method(self):
-        expected_str = f'{self.work_order.wo_number} - CAR RETURN - L6TCX2E78NE034774 - {self.work_order.created_on}'
+        expected_str = f'{self.work_order.wo_number} - CAR RETURN - {self.work_order.created_on}'
         self.assertEqual(str(self.work_order), expected_str)
 
 #-----------------------------------------------------------------------------------------------------------------------

@@ -8,15 +8,11 @@ from .models import DeliveryAgentModel
 
 # Register your models here.
 class DeliveryAgentModelAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'date_of_birth',)
+    list_display = ('full_name',)
 
     @staticmethod
     def full_name(self):
         return f'{self.personal_info.first_name} {self.personal_info.last_name}'
-
-    @staticmethod
-    def date_of_birth(self):
-        return f'{self.personal_info.date_of_birth}'
 
 admin.site.register(DeliveryAgentModel, DeliveryAgentModelAdmin)
 
