@@ -31,7 +31,7 @@ def delivery_agent_list(request):
 #-----------------------------------------------------------------------------------------------------------------------
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def delivery_agents_details(request, pk):
+def delivery_agent_details(request, pk):
 
     try:
         delivery_agent = DeliveryAgentModel.objects.get(id=pk)

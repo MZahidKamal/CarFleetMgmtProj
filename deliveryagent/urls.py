@@ -4,14 +4,14 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 # Importing all views from this app.
 from .views import (delivery_agent_list,
-                    delivery_agents_details,)
+                    delivery_agent_details,)
 
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating al necessary url pattern, so that we can access them from internet. .
 urlpatterns = [
     path('da-list', delivery_agent_list, name='delivery-agent-list'),
-    path('da-list/<int:pk>', delivery_agents_details, name='delivery-agent-details'),
+    path('da-list/<int:pk>', delivery_agent_details, name='delivery-agent-details'),
 ]
 
 #-----------------------------------------------------------------------------------------------------------------------
