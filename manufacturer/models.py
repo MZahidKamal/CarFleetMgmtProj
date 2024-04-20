@@ -1,12 +1,39 @@
-# All necessary imports for models.
+# All necessary imports for creating models.
 from django.db import models
 
-# All database models import from the stationery app.
-from stationery.models import *
+# Importing all necessary components from this app.
+from stationery.models import CompanyModel
+from car.models import CarModel
+from cardealer.models import CarDealerModel
+from deliveryagent.models import DeliveryAgentModel
+from workorder.models import WorkOrdersModel
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-# Create your models here.
-# class Manufacturer(models.Model):
-#     company_info = models.ForeignKey(CompanyModel, on_delete=models.CASCADE, related_name='manufacturer')
-#     car_collections = models.ManyToManyField()
+class ManufacturerModel(models.Model):
+    company_info = models.ForeignKey(CompanyModel, on_delete=models.CASCADE, verbose_name="Company Info")
+
+    @staticmethod
+    def related_cars():
+        return CarModel.objects.all()
+    # It will return all car related to this manufacturer.
+
+    @staticmethod
+    def related_car_dealers():
+        return CarDealerModel.objects.all()
+    # It will return all car dealers related to this manufacturer.
+
+    @staticmethod
+    def related_delivery_agents():
+        return DeliveryAgentModel.objects.all()
+    # It will return all delivery agents related to this manufacturer.
+
+    @staticmethod
+    def related_wo_history():
+        return WorkOrdersModel.objects.all()
+    # It will return all work orders related to this manufacturer.
+
+    def __str__(self):
+        return self.company_info.name
+
+#-----------------------------------------------------------------------------------------------------------------------
