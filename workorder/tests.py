@@ -20,19 +20,19 @@ class ProofImagesModelTestCases(TestCase):
     def setUp(self):
         self.proof_image = ProofImagesModel.objects.create(
             # workorder= Will be generated automatically from the workorder instance.
-            vin_number_image='workorder/test_images/01. vin_number',
-            license_plate_image='workorder/test_images/02. license_plate',
-            emission_sticker_image='workorder/test_images/03. emission_sticker',
-            registration_certificate_image='workorder/test_images/04. registration_certificate',
-            dashboard_image='workorder/test_images/05. dashboard',
-            front_image='workorder/test_images/06. front',
-            left_front_image='workorder/test_images/07. left_front',
-            left_rear_image='workorder/test_images/08. left_rear',
-            rear_image='workorder/test_images/09. rear',
-            right_rear_image='workorder/test_images/10. right_rear',
-            right_front_image='workorder/test_images/11. right_front',
-            key_set_image='workorder/test_images/12. key_set',
-            boot_accessories_image='workorder/test_images/13. boot_accessories'
+            vin_number_image='workorder/testing_samples/01. vin_number',
+            license_plate_image='workorder/testing_samples/02. license_plate',
+            emission_sticker_image='workorder/testing_samples/03. emission_sticker',
+            registration_certificate_image='workorder/testing_samples/04. registration_certificate',
+            dashboard_image='workorder/testing_samples/05. dashboard',
+            front_image='workorder/testing_samples/06. front',
+            left_front_image='workorder/testing_samples/07. left_front',
+            left_rear_image='workorder/testing_samples/08. left_rear',
+            rear_image='workorder/testing_samples/09. rear',
+            right_rear_image='workorder/testing_samples/10. right_rear',
+            right_front_image='workorder/testing_samples/11. right_front',
+            key_set_image='workorder/testing_samples/12. key_set',
+            boot_accessories_image='workorder/testing_samples/13. boot_accessories'
         )
 
     def test_proof_images_model_str_method(self):
@@ -123,7 +123,7 @@ class CarReceivingVCModelTestCases(TestCase):
             receiving_from='Autohaus Hedtke GmbH',
             created_on=datetime.now(),
             location='Rudolf-Diesel-Straße 42, 64331 Weiterstadt',
-            e_signature='workorder/test_images/14. e_signature',
+            e_signature='workorder/testing_samples/14. e_signature',
         )
 
     def test_car_receiving_vc_creation(self):
@@ -151,7 +151,7 @@ class CarGivingVCModelTestCases(TestCase):
             giving_to='Autohaus Hedtke GmbH',
             created_on=datetime.now(),
             location='Rudolf-Diesel-Straße 42, 64331 Weiterstadt',
-            e_signature='workorder/test_images/14. e_signature',
+            e_signature='workorder/testing_samples/14. e_signature',
         )
 
     def test_car_giving_vc_creation(self):
@@ -179,7 +179,7 @@ class CarExpensesModelTestCases(TestCase):
             amount='55.90',
             created_on=datetime.now(),
             payment_method='MASTER CARD',
-            receipt_image='workorder/test_images/15. refueling_receipt',
+            receipt_image='workorder/testing_samples/15. refueling_receipt',
         )
 
     def test_car_expenses_creation(self):
@@ -189,7 +189,7 @@ class CarExpensesModelTestCases(TestCase):
         self.assertEqual(self.car_expenses.amount, '55.90')
         self.assertTrue(self.car_expenses.created_on)
         self.assertEqual(self.car_expenses.payment_method, 'MASTER CARD')
-        self.assertEqual(self.car_expenses.receipt_image, 'workorder/test_images/15. refueling_receipt')
+        self.assertEqual(self.car_expenses.receipt_image, 'workorder/testing_samples/15. refueling_receipt')
 
     def test_car_expenses_model_str_method(self):
         expected_str = f'REFUELING COST - 55.90 - MASTER CARD - {self.car_expenses.created_on}'
@@ -206,7 +206,7 @@ class OverheadExpensesModelTestCases(TestCase):
             amount='23.80',
             created_on=datetime.now(),
             payment_method='MASTER CARD',
-            receipt_image='workorder/test_images/16. taxi_receipt',
+            receipt_image='workorder/testing_samples/16. taxi_receipt',
         )
 
     def test_overhead_expenses_creation(self):
@@ -216,7 +216,7 @@ class OverheadExpensesModelTestCases(TestCase):
         self.assertEqual(self.overhead_expenses.amount, '23.80')
         self.assertTrue(self.overhead_expenses.created_on)
         self.assertEqual(self.overhead_expenses.payment_method, 'MASTER CARD')
-        self.assertEqual(self.overhead_expenses.receipt_image, 'workorder/test_images/16. taxi_receipt')
+        self.assertEqual(self.overhead_expenses.receipt_image, 'workorder/testing_samples/16. taxi_receipt')
 
     def test_overhead_expenses_model_str_method(self):
         expected_str = f'TAXI COST - 23.80 - MASTER CARD - {self.overhead_expenses.created_on}'

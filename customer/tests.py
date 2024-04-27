@@ -5,6 +5,8 @@ from django.test import TestCase
 from .models import CustomerModel
 
 #-----------------------------------------------------------------------------------------------------------------------
+# TODO: Add test class for PersonalDocumentsModel.
+#-----------------------------------------------------------------------------------------------------------------------
 
 # Creating a class to test everything related to DeliveryAgentModel.
 class CustomerModelTestCases(TestCase):

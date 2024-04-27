@@ -117,7 +117,7 @@ def this_wo_ce_folder_path(instance, filename):
     # File will be uploaded to MEDIA_ROOT/workorder/<wo_number>/car_expenses/<filename>
 
 class CarExpensesModel(models.Model):
-    workorder = models.ForeignKey('WorkOrdersModel', on_delete=models.CASCADE, null=True, blank=True)
+    workorder = models.ForeignKey('WorkOrdersModel', on_delete=models.CASCADE)
     expense_type = models.CharField(max_length=14, choices=CHOICES_CE, verbose_name="Expense Type")
     amount = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Amount")
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Created on")
@@ -136,7 +136,7 @@ def this_wo_oe_folder_path(instance, filename):
     # File will be uploaded to MEDIA_ROOT/workorder/<wo_number>/overhead_expenses/<filename>
 
 class OverheadExpensesModel(models.Model):
-    workorder = models.ForeignKey('WorkOrdersModel', on_delete=models.CASCADE, null=True, blank=True)
+    workorder = models.ForeignKey('WorkOrdersModel', on_delete=models.CASCADE)
     expense_type = models.CharField(max_length=17, choices=CHOICES_OE, verbose_name="Expense Type")
     amount = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Amount")
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Created on")

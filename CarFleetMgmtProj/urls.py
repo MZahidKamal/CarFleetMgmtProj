@@ -30,7 +30,6 @@ urlpatterns = [
     path('', include('deliveryagent.urls')),
     path('', include('customer.urls')),
     path('', include('car.urls')),
-    # path('', include('vehiclecondition.urls')),
     path('', include('workorder.urls')),
 ]
 

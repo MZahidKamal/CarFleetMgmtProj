@@ -2,7 +2,15 @@
 from rest_framework import serializers
 
 # Importing all database models from this app.
-from .models import CustomerModel
+from .models import PersonalDocumentsModel, CustomerModel
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+# Creating a serializer so that it can translate the python object into a JSON format.
+class PersonalDocumentsModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PersonalDocumentsModel
+        fields = '__all__'
 
 #-----------------------------------------------------------------------------------------------------------------------
 
