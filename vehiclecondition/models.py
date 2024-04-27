@@ -1,4 +1,4 @@
-# All necessary imports for creating models.
+"""# All necessary imports for creating models.
 from django.db import models
 from datetime import datetime
 
@@ -47,7 +47,7 @@ class VehicleConditionModel(models.Model):
     charging_cable_schuko = models.CharField(max_length=3, choices=CHOICES_CCS, default='NO', verbose_name='Charging Cable Schuko')
     tyre_set = models.CharField(max_length=6, choices=CHOICES_TS, default='SUMMER', verbose_name='Tyre Set')
     tow_bar = models.CharField(max_length=3, choices=CHOICES_TB, default='NO', verbose_name='Tow Bar')
-    proof_images = models.ForeignKey(ProofImagesModel, on_delete=models.SET_NULL, null=True)
+    proof_images = models.OneToOneField(ProofImagesModel, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'{self.vin_number}, {self.registration_number}, {self.mileage}'
@@ -56,11 +56,10 @@ class VehicleConditionModel(models.Model):
 
 # Creating a car receiving VC model, so that it can be created along with the workorder model from workorder app.
 class CarReceivingVCModel(models.Model):
-    vehicle_condition = models.ForeignKey(VehicleConditionModel, on_delete=models.SET_NULL, null=True, blank=True)
+    vehicle_condition = models.OneToOneField(VehicleConditionModel, on_delete=models.SET_NULL, null=True, blank=True)
     receiving_from = models.CharField(max_length=50, verbose_name='Receiving From', null=True, blank=True)
     created_on = models.DateField(auto_now_add=True, verbose_name='Date and Time', null=True, blank=True)
     location = models.CharField(max_length=50, verbose_name='Location', null=True, blank=True)
-    # e_signature = models.CharField(max_length=50, verbose_name='Signature', null=True, blank=True)
     e_signature = models.ImageField(upload_to='workorder/%Y-%m-%d-%H-%M-%S/', verbose_name='E-Signature', null=True, blank=True)
 
     def __str__(self):
@@ -70,7 +69,7 @@ class CarReceivingVCModel(models.Model):
 
 # Creating a car receiving VC model, so that it can be created along with the workorder model from workorder app.
 class CarGivingVCModel(models.Model):
-    vehicle_condition = models.ForeignKey(VehicleConditionModel, on_delete=models.SET_NULL, null=True, blank=True)
+    vehicle_condition = models.OneToOneField(VehicleConditionModel, on_delete=models.SET_NULL, null=True, blank=True)
     giving_to = models.CharField(max_length=50, verbose_name='Giving To', null=True, blank=True)
     created_on = models.DateField(auto_now_add=True, verbose_name='Date and Time', null=True, blank=True)
     location = models.CharField(max_length=50, verbose_name='Location', null=True, blank=True)
@@ -80,3 +79,4 @@ class CarGivingVCModel(models.Model):
         return f'{self.giving_to}, {self.created_on}'
 
 #-----------------------------------------------------------------------------------------------------------------------
+"""

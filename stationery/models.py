@@ -61,8 +61,8 @@ class EmployeeModel(models.Model):
 class CompanyModel(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Company Name")
     address = models.ForeignKey(AddressModel, on_delete=models.CASCADE, null=True, blank=True)
-    registered_on = models.DateField(verbose_name="Registration Date")
-    registration_number = models.CharField(max_length=100, unique=True, verbose_name="Registration Number")
+    registered_on = models.DateField(verbose_name="Registration Date", null=True, blank=True)
+    registration_number = models.CharField(max_length=100, unique=True, verbose_name="Registration Number", null=True, blank=True)
     employees = models.ManyToManyField(EmployeeModel, verbose_name="Employees", blank=True)
 
     def __str__(self):

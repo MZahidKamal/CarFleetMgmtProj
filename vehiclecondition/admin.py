@@ -1,4 +1,4 @@
-# All necessary imports for admin registration.
+"""# All necessary imports for admin registration.
 from django.contrib import admin
 
 # Importing all database models from this app.
@@ -42,3 +42,4 @@ class CarGivingVCModelAdmin(admin.ModelAdmin):
 admin.site.register(CarGivingVCModel, CarGivingVCModelAdmin)
 
 #-----------------------------------------------------------------------------------------------------------------------
+"""

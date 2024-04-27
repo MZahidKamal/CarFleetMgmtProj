@@ -1,4 +1,4 @@
-CHOICES_FL = [
+"""CHOICES_FL = [
     ('0/10', '0/10'),
     ('1/10', '1/10'),
     ('2/10', '2/10'),
@@ -41,3 +41,4 @@ CHOICES_CCS = [('NO', 'No'), ('YES', 'Yes'),]
 CHOICES_TS = [('SUMMER', 'Summer'), ('WINTER', 'Winter'),]
 
 CHOICES_TB = [('NO', 'No'), ('YES', 'Yes'),]
+"""

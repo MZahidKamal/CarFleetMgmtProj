@@ -1,4 +1,4 @@
-# All necessary imports for creating urls.
+"""# All necessary imports for creating urls.
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
@@ -33,3 +33,4 @@ urlpatterns = format_suffix_patterns(urlpatterns)
 # In associated views 'format=None' is added for the same purpose.
 
 #-----------------------------------------------------------------------------------------------------------------------
+"""

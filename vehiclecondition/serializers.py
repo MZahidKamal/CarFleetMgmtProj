@@ -1,4 +1,4 @@
-# All necessary imports for creating serializers.
+"""# All necessary imports for creating serializers.
 from rest_framework import serializers
 
 # Importing all database models from this app.
@@ -37,3 +37,4 @@ class CarGivingVCModelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 #-----------------------------------------------------------------------------------------------------------------------
+"""

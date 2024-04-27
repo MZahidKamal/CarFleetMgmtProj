@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'deliveryagent',
     'customer',
     'car',
-    'vehiclecondition',
+    # 'vehiclecondition',
     'workorder',
 ]
 

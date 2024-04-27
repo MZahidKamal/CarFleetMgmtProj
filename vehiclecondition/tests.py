@@ -1,4 +1,4 @@
-# All necessary imports for creating test cases.
+"""# All necessary imports for creating test cases.
 from django.test import TestCase
 from datetime import date, datetime
 
@@ -109,6 +109,7 @@ class CarReceivingVCModelTestCases(TestCase):
     # Creating an object of CarReceivingVCModel.
     def setUp(self):
         self.car_receiving_vc = CarReceivingVCModel.objects.create(
+            # wo_number='',
             # VehicleCondition has already been tested previously. So we are not creating it again and testing again.
             receiving_from='Autohaus Hedtke GmbH',
             created_on=datetime.now(),
@@ -119,6 +120,7 @@ class CarReceivingVCModelTestCases(TestCase):
     def test_car_receiving_vc_creation(self):
         self.assertIsInstance(self.car_receiving_vc, CarReceivingVCModel)
         self.assertTrue(self.car_receiving_vc.id)
+        # self.assertTrue(self.car_receiving_vc.wo_number)
         # VehicleCondition has already been tested previously. So we are not creating it again and testing again.
         self.assertTrue(self.car_receiving_vc.receiving_from)
         self.assertTrue(self.car_receiving_vc.created_on)
@@ -157,3 +159,4 @@ class CarGivingVCModelTestCases(TestCase):
         self.assertEqual(str(self.car_giving_vc), expected_str)
 
 #-----------------------------------------------------------------------------------------------------------------------
+"""

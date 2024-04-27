@@ -1,11 +1,12 @@
-# All necessary imports for creating views.
+"""# All necessary imports for creating views.
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 
 # Importing all database models from this app.
-from .models import (VehicleConditionModel,
+from .models import (ProofImagesModel,
+                     VehicleConditionModel,
                      CarReceivingVCModel,
                      CarGivingVCModel)
 
@@ -146,3 +147,4 @@ def car_giving_vc_detail(request, pk, format=None):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 #-----------------------------------------------------------------------------------------------------------------------
+"""
