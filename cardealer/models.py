@@ -16,4 +16,8 @@ class CarDealerModel(models.Model):
     def __str__(self):
         return self.company_info.name
 
+    class Meta:
+        verbose_name = 'Car Dealer'
+        verbose_name_plural = "Car Dealers"
+
 #-----------------------------------------------------------------------------------------------------------------------

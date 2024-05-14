@@ -23,4 +23,8 @@ class CarModel(models.Model):
     def __str__(self):
         return f"{self.model} - {self.vin_number} - {self.registration_number} - {self.tuv_expire_date}"
 
+    class Meta:
+        verbose_name = 'Car'
+        verbose_name_plural = 'Cars'
+
 #-----------------------------------------------------------------------------------------------------------------------

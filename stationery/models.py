@@ -18,6 +18,10 @@ class AddressModel(models.Model):
     # The __str__() method in a Django model is used to define the representation of the object information in the admin
     # interfaces or elsewhere in the application.
 
+    class Meta:
+        verbose_name = "Address"
+        verbose_name_plural = "Addresses"
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating a person model, so that it can be inherited from anywhere of this project.
@@ -41,6 +45,10 @@ class PersonModel(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+    class Meta:
+        verbose_name = "Person"
+        verbose_name_plural = "People"
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating an employee model, so that it can be inherited from anywhere of this project.
@@ -55,6 +63,10 @@ class EmployeeModel(models.Model):
     def __str__(self):
         return f"{self.person.first_name} {self.person.last_name}"
 
+    class Meta:
+        verbose_name = "Employee"
+        verbose_name_plural = "Employees"
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating a company model, so that it can be inherited from anywhere of this project.
@@ -67,5 +79,9 @@ class CompanyModel(models.Model):
 
     def __str__(self):
         return f"{self.name}, {self.address}"
+
+    class Meta:
+        verbose_name = "Company"
+        verbose_name_plural = "Companies"
 
 #-----------------------------------------------------------------------------------------------------------------------

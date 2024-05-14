@@ -28,11 +28,15 @@ class PersonalDocumentsModel(models.Model):
     def __str__(self):
         return f"{self.customer.cr_number} -- {self.customer.personal_info.first_name} {self.customer.personal_info.last_name} -- {self.last_updated.strftime("%d %B %Y")}"
 
+    class Meta:
+        verbose_name = 'Personal Document'
+        verbose_name_plural = 'Personal Documents'
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 class CustomerModel(models.Model):
     cr_number = models.CharField(max_length=8, unique=True, editable=False, verbose_name="Customer Number")
-    personal_info = models.ForeignKey(PersonModel, on_delete=models.CASCADE, verbose_name="Personal Info", null=True, blank=True)
+    personal_info = models.ForeignKey(PersonModel, on_delete=models.CASCADE, verbose_name="Personal Info")
     personal_documents = models.OneToOneField(PersonalDocumentsModel, on_delete=models.CASCADE, verbose_name="Personal Documents", related_name='personal_documents', null=True, blank=True)
     eligibility_check = models.CharField(max_length=7, choices=CHOICES_EC, default='PENDING', verbose_name="Eligibility Check")
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Customer Created On")
@@ -60,5 +64,9 @@ class CustomerModel(models.Model):
             return f"{self.cr_number} -- {self.personal_info.first_name} {self.personal_info.last_name} -- {self.created_on.strftime("%d %B %Y")}"
         else:
             return f"{self.cr_number} -- {self.created_on.strftime("%d %B %Y")}"
+
+    class Meta:
+        verbose_name = 'Customer'
+        verbose_name_plural = 'Customers'
 
 #-----------------------------------------------------------------------------------------------------------------------

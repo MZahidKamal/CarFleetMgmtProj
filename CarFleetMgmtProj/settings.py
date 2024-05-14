@@ -46,8 +46,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'storages',
-    'rest_framework',
 
+    'rest_framework',                   # As we are using DjangoREST Framework. This line we must add.
+    'rest_framework.authtoken',         # As we are using Django's TokenAuthentication. This line we must add.
+
+    'user',
     'stationery',
     'manufacturer',
     'cardealer',
@@ -117,6 +120,12 @@ DATABASES = {
 }
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# As we have created new app named 'account' and then have created custom user model naming AccountModel. This line we must add.
+AUTH_USER_MODEL = 'user.CustomUserModel'
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

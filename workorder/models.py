@@ -44,6 +44,10 @@ class ProofImagesModel(models.Model):
 
     # TODO: Convert images to binary and then save into database (without folder structure) in order to save space.
 
+    class Meta:
+        verbose_name = 'Proof Image'
+        verbose_name_plural = 'Proof Images'
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Creating a vehicle condition model, so that it can be inherited from the car receiving/delivering VC models.
@@ -71,6 +75,10 @@ class VehicleConditionModel(models.Model):
     def __str__(self):
         return f'{self.vin_number}, {self.registration_number}, {self.mileage}'
 
+    class Meta:
+        verbose_name = 'Vehicle Condition'
+        verbose_name_plural = 'Vehicle Conditions'
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 def this_wo_car_receiving_vc_folder_path(instance, filename):
@@ -89,6 +97,10 @@ class CarReceivingVCModel(models.Model):
 
     def __str__(self):
         return f'{self.receiving_from} -- {self.created_on.strftime("%d %B %Y")} -- {self.workorder.wo_number}'
+
+    class Meta:
+        verbose_name = 'CarReceiving VC'
+        verbose_name_plural = 'CarReceiving VCs'
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -109,6 +121,10 @@ class CarGivingVCModel(models.Model):
     def __str__(self):
         return f'{self.giving_to} -- {self.created_on.strftime("%d %B %Y")} -- {self.workorder.wo_number}'
 
+    class Meta:
+        verbose_name = 'CarGiving VC'
+        verbose_name_plural = 'CarGiving VCs'
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 def this_wo_ce_folder_path(instance, filename):
@@ -128,6 +144,10 @@ class CarExpensesModel(models.Model):
     def __str__(self):
         return f"{self.expense_type} -- {self.amount}€ -- {self.payment_method} -- {self.created_on.strftime("%d %B %Y")}"
 
+    class Meta:
+        verbose_name = 'CarExpenses'
+        verbose_name_plural = 'CarExpenses'
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 def this_wo_oe_folder_path(instance, filename):
@@ -146,6 +166,10 @@ class OverheadExpensesModel(models.Model):
 
     def __str__(self):
         return f"{self.expense_type} -- {self.amount}€ -- {self.payment_method} -- {self.created_on.strftime("%d %B %Y")}"
+
+    class Meta:
+        verbose_name = 'Overhead Expenses'
+        verbose_name_plural = 'Overhead Expenses'
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -200,5 +224,9 @@ class WorkOrdersModel(models.Model):
 
     def __str__(self):
         return f"{self.wo_number} - {self.type.capitalize()}"
+
+    class Meta:
+        verbose_name = 'Work Order'
+        verbose_name_plural = 'Work Orders'
 
 #-----------------------------------------------------------------------------------------------------------------------

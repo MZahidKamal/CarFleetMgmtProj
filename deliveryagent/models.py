@@ -16,4 +16,8 @@ class DeliveryAgentModel(models.Model):
     def __str__(self):
         return f"{self.personal_info.first_name} {self.personal_info.last_name}"
 
+    class Meta:
+        verbose_name = "Delivery Agent"
+        verbose_name_plural = "Delivery Agents"
+
 #-----------------------------------------------------------------------------------------------------------------------

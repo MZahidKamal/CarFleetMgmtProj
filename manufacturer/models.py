@@ -32,4 +32,8 @@ class ManufacturerModel(models.Model):
     def __str__(self):
         return self.company_info.name
 
+    class Meta:
+        verbose_name = 'Manufacturer'
+        verbose_name_plural = "Manufacturers"
+
 #-----------------------------------------------------------------------------------------------------------------------
